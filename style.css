@@ -104,8 +104,28 @@ h2, h3, p {
   width: 100vw;
 }
 .zen-resources li {
-  font-size: 0px;
   flex-grow: 1;
+}
+.zen-resources a {
+  display: block;
+  font-size: 0px;
+  width: 100%;
+  height: 100%;
+}
+.zen-resources .view-css {
+  background-image: url(./svg/css-file-icon.svg);
+}
+.zen-resources .css-resources {
+  background-image: url(./svg/css-guide-icon.svg);
+}
+.zen-resources .zen-faq {
+  background-image: url(./svg/question-icon.svg);
+}
+.zen-resources .zen-submit {
+  background-image: url(./svg/paper-plane-tilt-icon.svg);
+}
+.zen-resources .zen-translations {
+  background-image: url(./svg/translate-icon.svg);
 }
 
 /*# sourceMappingURL=style.css.map */
