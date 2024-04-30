@@ -1,30 +1,33 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Laila:wght@300;400;500;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Laila:wght@300;400;500;600;700&display=swap");
 h1 {
-	font-family: "Dancing Script", cursive;
-	font-optical-sizing: auto;
-  	font-weight: 400;
-  	font-style: normal;
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
-h2, h3, p{
-	font-family: "Laila", serif;
-	font-weight: 300;
-	font-style: normal;
+h2, h3, p {
+  font-family: "Laila", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .intro, .explanation, .participation, .benefits, .requirements {
-	height: 100vh;
+  height: 100vh;
 }
 
 /* Intro */
 .intro {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[role=banner] h2 {
+  font-size: 0;
 }
 
 .summary > p:first-of-type {
-	display: none;
+  display: none;
 }
