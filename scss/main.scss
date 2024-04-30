@@ -1,3 +1,4 @@
+@import "reset";
 @import "fonts";
 
 .intro, .explanation, .participation, .benefits, .requirements {
@@ -20,4 +21,25 @@
 
 .summary > p:first-of-type {
 	display: none;
+}
+
+/* Resources */
+.zen-resources{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background-color: #faedcb;
+
+	h3 { display: none;}
+	ul {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-around;
+		height: 100px;
+		width: 100vw;
+	}
+	li {
+		font-size: 0px;
+		flex-grow: 1;
+	}
 }
