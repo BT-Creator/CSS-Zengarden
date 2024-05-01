@@ -4,18 +4,38 @@
 @use "sass:map";
 @use "sass:string";
 
-:root{
-	--sky-blue: /*##{$sky-blue}*/ #7297C6;
-	--carpet-red: /*##{$carpet-red}*/ #C05946;
+:root {
+	--sky-blue: /*##{$sky-blue}*/ #7297c6;
+	--carpet-red: /*##{$carpet-red}*/ #c05946;
 	--off-white: /*##{$off-white}*/ #faedcb;
 }
 
-.intro, .explanation, .participation, .benefits, .requirements {
-	height: 100vh;
+.intro,
+.explanation,
+.participation,
+.benefits,
+.requirements {
+	min-height: calc(100vh - 100px);
 }
 
 body {
-	background: radial-gradient(50% 50% at 50% 50%, rgba(233, 228, 205, 0.50) 0%, rgba(250, 237, 203, 0.50) 25%, rgba(221, 215, 200, 0.50) 48.5%, rgba(221, 215, 200, 0.00) 100%), var(--sky-blue);
+	background: radial-gradient(
+			50% 50% at 50% 50%,
+			rgba(233, 228, 205, 0.5) 0%,
+			rgba(250, 237, 203, 0.5) 25%,
+			rgba(221, 215, 200, 0.5) 48.5%,
+			rgba(221, 215, 200, 0) 100%
+		),
+		var(--sky-blue);
+}
+
+.page-wrapper {
+	width: 100vw
+}
+
+.intro, .explanation, .participation, .benefits, .requirements {
+	padding-left: 2rem;
+	padding-right: 100px;
 }
 
 /* Intro */
@@ -23,42 +43,76 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-}
+	background-image: url(map.get(svgs.$graphics, "top-clouds"));
+	background-size: 100vw auto;
+	background-repeat: no-repeat;
 
-[role="banner"] {
-    h2 {
-        font-size: 0;
-    }
-	
-}
+	h1 {
+		color: var(--off-white);
+		margin-bottom: 1rem;
+	}
 
-.summary > p:first-of-type {
-	display: none;
+	[role="banner"] {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		h2 {
+			font-size: 0;
+			background-image: url(map.get(svgs.$graphics, "intro-banner"));
+			background-repeat: no-repeat;
+			background-size: calc(100vw - 120px) auto;
+			height: 3rem;
+			width: calc(95vw - 100px);
+		}
+	}
+
+	.summary {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		margin-bottom: 3rem;
+		p:first-of-type {
+			display: none;
+		}
+		p:nth-of-type(2){
+			font-size: 1rem;
+			width: max-content;
+			font-family: "Dancing Script", cursive;
+			font-optical-sizing: auto;
+			font-weight: 400;
+			font-style: normal;
+			color: var(--off-white);
+		}
+	}
 }
 
 /* Navbars */
-.zen-resources a, footer > a{
+.zen-resources a,
+footer > a {
 	display: block;
 	font-size: 0px;
 	width: 100%;
 	height: 100%;
 }
 
-.zen-resources li, footer a {
+.zen-resources li,
+footer a {
 	flex-grow: 1;
 	background-repeat: no-repeat;
 	background-size: 75px auto;
 }
 
 /* Bottom Nav -> Resources */
-.zen-resources{
+.zen-resources {
 	position: fixed;
 	left: 0;
 	bottom: 0;
 	background-color: var(--off-white);
 	border-radius: 16px 16px 0 0;
 
-	h3 { display: none;}
+	h3 {
+		display: none;
+	}
 	ul {
 		display: flex;
 		flex-flow: row nowrap;
@@ -70,35 +124,31 @@ body {
 		border-left: #fcf7ed 2px solid;
 		background-position: top;
 	}
-	li:first-of-type{
+	li:first-of-type {
 		border-left: none;
 	}
 	.view-css {
-		background-image: url(map.get(svgs.$icons, "css-file-duotone"));
+		background-image: url(map.get(svgs.$graphics, "css-file-duotone"));
 	}
 	.css-resources {
-		background-image: url(map.get(svgs.$icons, "css-guide-duotone"));
+		background-image: url(map.get(svgs.$graphics, "css-guide-duotone"));
 	}
 	.zen-faq {
-		background-image: url(map.get(svgs.$icons, "paper-plane-duotone"));
+		background-image: url(map.get(svgs.$graphics, "paper-plane-duotone"));
 	}
 	.zen-submit {
-		background-image: url(map.get(svgs.$icons, "question-duotone"));
+		background-image: url(map.get(svgs.$graphics, "question-duotone"));
 	}
 	.zen-translations {
-		background-image: url(map.get(svgs.$icons, "translate-duotone"));
-	}
-
-	li::after{
-		content: url(Vector.svg)
+		background-image: url(map.get(svgs.$graphics, "translate-duotone"));
 	}
 }
 
 /* Side Nav */
-footer{
+footer {
 	position: fixed;
 	right: 0;
-	top: 0;
+	bottom: 100px;
 	display: flex;
 	flex-flow: column nowrap;
 	height: 80vh;
@@ -108,19 +158,36 @@ footer{
 	a {
 		background-position: right;
 	}
-	.zen-validate-html{
-		background-image: url(map.get(svgs.$icons, "html-verify-duotone"));
+	.zen-validate-html {
+		background-image: url(map.get(svgs.$graphics, "html-verify-duotone"));
 	}
-	.zen-validate-css{
-		background-image: url(map.get(svgs.$icons, "css-verify-duotone"));
+	.zen-validate-css {
+		background-image: url(map.get(svgs.$graphics, "css-verify-duotone"));
 	}
-	.zen-license{
-		background-image: url(map.get(svgs.$icons, "license-duotone"));
+	.zen-license {
+		background-image: url(map.get(svgs.$graphics, "license-duotone"));
 	}
-	.zen-accessibility{
-		background-image: url(map.get(svgs.$icons, "accessibility-duotone"));
+	.zen-accessibility {
+		background-image: url(map.get(svgs.$graphics, "accessibility-duotone"));
 	}
-	.zen-github{
-		background-image: url(map.get(svgs.$icons, "github-duotone"));
+	.zen-github {
+		background-image: url(map.get(svgs.$graphics, "github-duotone"));
+	}
+}
+
+@media screen and (width < 400px) {
+	.intro {
+		padding-top: 7vh;
+
+		h1 {
+			font-size: 1.75rem;
+		}
+
+		.summary{
+			p:nth-of-type(2){
+				width: unset;
+				font-size: 0.9rem;
+			}
+		}
 	}
 }
