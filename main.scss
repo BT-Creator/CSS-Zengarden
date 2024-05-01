@@ -1,0 +1,126 @@
+@use "scss/reset";
+@use "scss/fonts";
+@use "scss/svgs";
+@use "sass:map";
+@use "sass:string";
+
+:root{
+	--sky-blue: /*##{$sky-blue}*/ #7297C6;
+	--carpet-red: /*##{$carpet-red}*/ #C05946;
+	--off-white: /*##{$off-white}*/ #faedcb;
+}
+
+.intro, .explanation, .participation, .benefits, .requirements {
+	height: 100vh;
+}
+
+body {
+	background: radial-gradient(50% 50% at 50% 50%, rgba(233, 228, 205, 0.50) 0%, rgba(250, 237, 203, 0.50) 25%, rgba(221, 215, 200, 0.50) 48.5%, rgba(221, 215, 200, 0.00) 100%), var(--sky-blue);
+}
+
+/* Intro */
+.intro {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+[role="banner"] {
+    h2 {
+        font-size: 0;
+    }
+	
+}
+
+.summary > p:first-of-type {
+	display: none;
+}
+
+/* Navbars */
+.zen-resources a, footer > a{
+	display: block;
+	font-size: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.zen-resources li, footer a {
+	flex-grow: 1;
+	background-repeat: no-repeat;
+	background-size: 75px auto;
+}
+
+/* Bottom Nav -> Resources */
+.zen-resources{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background-color: var(--off-white);
+	border-radius: 16px 16px 0 0;
+
+	h3 { display: none;}
+	ul {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-around;
+		height: 100px;
+		width: 100vw;
+	}
+	li {
+		border-left: #fcf7ed 2px solid;
+		background-position: top;
+	}
+	li:first-of-type{
+		border-left: none;
+	}
+	.view-css {
+		background-image: url(map.get(svgs.$icons, "css-file-duotone"));
+	}
+	.css-resources {
+		background-image: url(map.get(svgs.$icons, "css-guide-duotone"));
+	}
+	.zen-faq {
+		background-image: url(map.get(svgs.$icons, "paper-plane-duotone"));
+	}
+	.zen-submit {
+		background-image: url(map.get(svgs.$icons, "question-duotone"));
+	}
+	.zen-translations {
+		background-image: url(map.get(svgs.$icons, "translate-duotone"));
+	}
+
+	li::after{
+		content: url(Vector.svg)
+	}
+}
+
+/* Side Nav */
+footer{
+	position: fixed;
+	right: 0;
+	top: 0;
+	display: flex;
+	flex-flow: column nowrap;
+	height: 80vh;
+	width: 100px;
+	justify-content: space-between;
+
+	a {
+		background-position: right;
+	}
+	.zen-validate-html{
+		background-image: url(map.get(svgs.$icons, "html-verify-duotone"));
+	}
+	.zen-validate-css{
+		background-image: url(map.get(svgs.$icons, "css-verify-duotone"));
+	}
+	.zen-license{
+		background-image: url(map.get(svgs.$icons, "license-duotone"));
+	}
+	.zen-accessibility{
+		background-image: url(map.get(svgs.$icons, "accessibility-duotone"));
+	}
+	.zen-github{
+		background-image: url(map.get(svgs.$icons, "github-duotone"));
+	}
+}
