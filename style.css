@@ -92,6 +92,7 @@ h2, h3, p {
   left: 0;
   bottom: 0;
   background-color: #faedcb;
+  border-radius: 16px 16px 0 0;
 }
 .zen-resources h3 {
   display: none;
@@ -105,6 +106,13 @@ h2, h3, p {
 }
 .zen-resources li {
   flex-grow: 1;
+  background-repeat: no-repeat;
+  background-size: 50px;
+  background-position: center;
+  border-left: #fcf7ed 2px solid;
+}
+.zen-resources li:last-of-type() {
+  border-left: unset;
 }
 .zen-resources a {
   display: block;
@@ -113,19 +121,19 @@ h2, h3, p {
   height: 100%;
 }
 .zen-resources .view-css {
-  background-image: url(./svg/css-file-icon.svg);
+  background-image: url(./svg/css-file-duotone-icon.svg);
 }
 .zen-resources .css-resources {
-  background-image: url(./svg/css-guide-icon.svg);
+  background-image: url(./svg/css-guide-duotone-icon.svg);
 }
 .zen-resources .zen-faq {
-  background-image: url(./svg/question-icon.svg);
+  background-image: url(./svg/question-duotone-icon.svg);
 }
 .zen-resources .zen-submit {
-  background-image: url(./svg/paper-plane-tilt-icon.svg);
+  background-image: url(./svg/paper-plane-tilt-duotone-icon.svg);
 }
 .zen-resources .zen-translations {
-  background-image: url(./svg/translate-icon.svg);
+  background-image: url(./svg/translate-duotone-icon.svg);
 }
 
 /*# sourceMappingURL=style.css.map */
