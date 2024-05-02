@@ -38,14 +38,16 @@ body {
 }
 
 /* Intro */
-.intro {
+.intro, .participation, .requirements {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	background-image: url(map.get(svgs.$graphics, "top-clouds"));
 	background-size: 100vw auto;
 	background-repeat: no-repeat;
+}
 
+.intro {
 	h1 {
 		color: var(--off-white);
 		margin-bottom: 1rem;
@@ -85,41 +87,44 @@ body {
 	}
 }
 
-.explanation {
+.explanation, .benefits {
 	background-color: var(--carpet-red);
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
 	color: var(--off-white);
 	position: relative;
+	::before {
+		content: "";
+		display: inline-block;
+		height: 40vw;
+		width: 110vw;
+		position: absolute;
+		background-image: url(map.get(svgs.$graphics, "frame-divider"));
+		background-repeat: no-repeat;
+		background-size: 110vw auto;
+		top: -18vw;
+		left: -1.5rem
+	}
+
+	::after {
+		content: "";
+		display: inline-block;
+		height: 40vw;
+		width: 110vw;
+		position: absolute;
+		background-image: url(map.get(svgs.$graphics, "top-clouds"));
+		transform: rotate(180deg);
+		background-repeat: no-repeat;
+		background-size: 110vw auto;
+		bottom: 0;
+		left: -1.5rem
+	}
 }
 
-.explanation::before {
-	content: "";
-	display: inline-block;
-	height: 40vw;
-	width: 110vw;
-	position: absolute;
-	background-image: url(map.get(svgs.$graphics, "frame-divider"));
-	background-repeat: no-repeat;
-	background-size: 110vw auto;
-	top: -18vw;
-	left: -1.5rem
+.requirements{
+	padding-top: 5rem;
 }
-
-.explanation::after {
-	content: "";
-	display: inline-block;
-	height: 40vw;
-	width: 110vw;
-	position: absolute;
-	background-image: url(map.get(svgs.$graphics, "frame-divider"));
-	background-repeat: no-repeat;
-	background-size: 110vw auto;
-	bottom: -22vw;
-	left: -1.5rem
-}
-
 
 /* Navbars */
 .zen-resources a,
