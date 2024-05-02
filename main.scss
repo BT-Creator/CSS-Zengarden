@@ -5,9 +5,9 @@
 @use "sass:string";
 
 :root {
-	--sky-blue: /*##{$sky-blue}*/ #7297c6;
-	--carpet-red: /*##{$carpet-red}*/ #c05946;
-	--off-white: /*##{$off-white}*/ #faedcb;
+	--sky-blue: #7297c6;
+	--carpet-red: #c05946;
+	--off-white: #faedcb;
 	--content-p-left: 2rem;
 	--sidebar-width: 100px;
 	--b-nav-height: 100px;
@@ -30,6 +30,7 @@ body {
 			rgba(221, 215, 200, 0) 100%
 		),
 		var(--sky-blue);
+	overflow-x: hidden;
 }
 
 .intro, .explanation, .participation, .benefits, .requirements {
@@ -61,8 +62,8 @@ body {
 			font-size: 0;
 			background-image: url(map.get(svgs.$graphics, "intro-banner"));
 			background-repeat: no-repeat;
-			background-size: calc(100vw - 120px) auto;
-			height: 3rem;
+			background-size: calc(95vw - var(--sidebar-width)) auto;
+			height: 15vw;
 			width: calc(95vw - var(--sidebar-width));
 		}
 	}
@@ -123,7 +124,7 @@ body {
 }
 
 .requirements{
-	padding-top: 5rem;
+	padding-top: 30vw;
 }
 
 /* Navbars */
