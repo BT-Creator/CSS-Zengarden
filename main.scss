@@ -8,6 +8,9 @@
 	--sky-blue: /*##{$sky-blue}*/ #7297c6;
 	--carpet-red: /*##{$carpet-red}*/ #c05946;
 	--off-white: /*##{$off-white}*/ #faedcb;
+	--content-p-left: 2rem;
+	--sidebar-width: 100px;
+	--b-nav-height: 100px;
 }
 
 .intro,
@@ -29,13 +32,9 @@ body {
 		var(--sky-blue);
 }
 
-.page-wrapper {
-	width: 100vw
-}
-
 .intro, .explanation, .participation, .benefits, .requirements {
-	padding-left: 2rem;
-	padding-right: 100px;
+	padding-left: var(--content-p-left);
+	padding-right: var(--sidebar-width);
 }
 
 /* Intro */
@@ -62,7 +61,7 @@ body {
 			background-repeat: no-repeat;
 			background-size: calc(100vw - 120px) auto;
 			height: 3rem;
-			width: calc(95vw - 100px);
+			width: calc(95vw - var(--sidebar-width));
 		}
 	}
 
@@ -85,6 +84,42 @@ body {
 		}
 	}
 }
+
+.explanation {
+	background-color: var(--carpet-red);
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	color: var(--off-white);
+	position: relative;
+}
+
+.explanation::before {
+	content: "";
+	display: inline-block;
+	height: 40vw;
+	width: 110vw;
+	position: absolute;
+	background-image: url(map.get(svgs.$graphics, "frame-divider"));
+	background-repeat: no-repeat;
+	background-size: 110vw auto;
+	top: -18vw;
+	left: -1.5rem
+}
+
+.explanation::after {
+	content: "";
+	display: inline-block;
+	height: 40vw;
+	width: 110vw;
+	position: absolute;
+	background-image: url(map.get(svgs.$graphics, "frame-divider"));
+	background-repeat: no-repeat;
+	background-size: 110vw auto;
+	bottom: -22vw;
+	left: -1.5rem
+}
+
 
 /* Navbars */
 .zen-resources a,
@@ -109,20 +144,25 @@ footer a {
 	bottom: 0;
 	background-color: var(--off-white);
 	border-radius: 16px 16px 0 0;
+	overflow: hidden;
+	box-sizing: border-box;
+	height: var(--b-nav-height);
 
 	h3 {
 		display: none;
+		font-size: 0px;
 	}
 	ul {
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-around;
-		height: 100px;
+		height: var(--b-nav-height);
 		width: 100vw;
 	}
 	li {
 		border-left: #fcf7ed 2px solid;
 		background-position: top;
+		height: var(--b-nav-height);
 	}
 	li:first-of-type {
 		border-left: none;
@@ -148,15 +188,15 @@ footer a {
 footer {
 	position: fixed;
 	right: 0;
-	bottom: 100px;
+	bottom: var(--b-nav-height);
 	display: flex;
 	flex-flow: column nowrap;
 	height: 80vh;
-	width: 100px;
 	justify-content: space-between;
 
 	a {
 		background-position: right;
+		width: var(--sidebar-width);
 	}
 	.zen-validate-html {
 		background-image: url(map.get(svgs.$graphics, "html-verify-duotone"));
