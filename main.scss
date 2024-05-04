@@ -8,7 +8,7 @@
 	--sky-blue: #7297c6;
 	--carpet-red: #c05946;
 	--off-white: #faedcb;
-	--off-black: #1E241F;
+	--off-black: #1e241f;
 	--content-p-left: 2rem;
 	--sidebar-width: 100px;
 	--b-nav-height: 100px;
@@ -40,7 +40,12 @@ html {
 	min-height: calc(100vh - var(--b-nav-height));
 }
 
-.intro, .explanation, .participation, .benefits, .requirements, .design-selection {
+.intro,
+.explanation,
+.participation,
+.benefits,
+.requirements,
+.design-selection {
 	scroll-snap-align: start;
 }
 
@@ -48,14 +53,22 @@ html {
 .explanation,
 .participation,
 .benefits,
-.requirements, 
-.design-selection, 
+.requirements,
+.design-selection,
 .design-archives {
 	padding-left: var(--content-p-left);
 	padding-right: var(--sidebar-width);
 }
 
-.intro, .explanation, .participation, .benefits, .requirements, .design-selection {
+.intro,
+.explanation,
+.participation,
+.benefits,
+.requirements,
+.design-selection {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	padding-top: 5vh;
 	padding-bottom: 5vh;
 }
@@ -77,19 +90,23 @@ html {
 	h1 {
 		color: var(--off-white);
 		margin-bottom: 1rem;
+		font-size: 2.5em;
 	}
 
 	[role="banner"] {
 		display: flex;
 		flex-flow: column nowrap;
 		align-items: center;
+		max-width: 470px;
 		h2 {
 			font-size: 0;
 			background-image: url(map.get(svgs.$graphics, "intro-banner"));
 			background-repeat: no-repeat;
-			background-size: calc(95vw - var(--sidebar-width)) auto;
+			background-size: clamp(0px, calc(95vw - var(--sidebar-width)), 470px) auto;
 			height: 15vw;
 			width: calc(95vw - var(--sidebar-width));
+			max-width: 470px;
+			max-height: 84px;
 		}
 	}
 
@@ -109,6 +126,7 @@ html {
 			font-weight: 400;
 			font-style: normal;
 			color: var(--off-white);
+			font-size: 1.5em;
 		}
 	}
 }
@@ -117,9 +135,6 @@ html {
 .benefits,
 .design-selection {
 	background-color: var(--carpet-red);
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
 	color: var(--off-white);
 	position: relative;
 }
@@ -158,14 +173,18 @@ html {
 
 .design-selection {
 	height: calc(100vh - 100px);
+	display: flex;
+	align-items: center;
 	h3 {
 		font-size: 0;
 		background-image: url(map.get(svgs.$graphics, "design-banner"));
 		background-repeat: no-repeat;
-		background-size: calc(95vw - var(--sidebar-width)) auto;
+		background-size: clamp(0px, calc(95vw - var(--sidebar-width)), 470px) auto;
 		height: 16vw;
 		width: calc(95vw - var(--sidebar-width));
 		margin-bottom: 2rem;
+		max-width: 470px;
+		max-height: 120px;
 	}
 	ul {
 		display: flex;
@@ -174,14 +193,15 @@ html {
 	}
 
 	li::after {
-		content:">";
+		content: ">";
 		color: var(--off-white);
 	}
 	li:hover {
 		text-decoration: underline;
 	}
 
-	.design-name, .designer-name {
+	.design-name,
+	.designer-name {
 		text-decoration: none;
 	}
 	.design-name {
@@ -192,9 +212,9 @@ html {
 	}
 }
 
-.design-archives{
+.design-archives {
 	position: relative;
-	top: -10rem;
+	top: -20vh;
 	color: var(--off-black);
 	h3 {
 		font-size: 0;
@@ -204,7 +224,7 @@ html {
 		flex-flow: row-reverse nowrap;
 		justify-content: space-around;
 	}
-	li{
+	li {
 		background-color: (var(--off-white));
 		padding: 0.5rem;
 		border-radius: 8px;
@@ -324,8 +344,34 @@ footer {
 	}
 }
 
+@media screen and (width > 600px) {
+	a, p, li, abbr {
+		font-size: 1.25em;
+	}
+
+	h3 {
+		font-size: 1.5em;
+		width: 600px;
+	}
+	
+	.preamble,
+	:is(.explanation, .participation, .benefits, .requirements) > :is(h3, p) {
+		max-width: 600px;
+	}
+
+	.intro,
+	.explanation,
+	.participation,
+	.benefits,
+	.requirements,
+	.design-selection {
+		align-items: center;
+	}
+}
+
 @media screen and (height < 700px) {
-	a, p {
+	a,
+	p {
 		font-size: 0.8rem;
 	}
 
@@ -342,8 +388,8 @@ footer {
 		h3 {
 			margin-bottom: 1rem;
 		}
-		
-		ul{
+
+		ul {
 			gap: 0.25rem;
 		}
 	}
