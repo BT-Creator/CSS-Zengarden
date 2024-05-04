@@ -107,6 +107,9 @@ html {
 			width: calc(95vw - var(--sidebar-width));
 			max-width: 470px;
 			max-height: 84px;
+			abbr {
+				font-size: 0;
+			}
 		}
 	}
 
@@ -126,7 +129,6 @@ html {
 			font-weight: 400;
 			font-style: normal;
 			color: var(--off-white);
-			font-size: 1.5em;
 		}
 	}
 }
@@ -167,8 +169,8 @@ html {
 }
 
 .requirements {
-	padding-top: 8rem;
-	padding-bottom: 4rem;
+	padding-top: 10rem;
+	padding-bottom: 8rem;
 }
 
 .design-selection {
@@ -272,6 +274,9 @@ footer a {
 		height: var(--b-nav-height);
 		width: 100vw;
 	}
+	abbr {
+		font-size: 0;
+	}
 	li {
 		border-left: #fcf7ed 2px solid;
 		background-position: top;
@@ -311,6 +316,9 @@ footer {
 	a {
 		background-position: right;
 		width: var(--sidebar-width);
+		abbr {
+			font-size: 0;
+		}
 	}
 	.zen-validate-html {
 		background-image: url(map.get(svgs.$graphics, "html-verify-duotone"));
@@ -346,11 +354,11 @@ footer {
 
 @media screen and (width > 600px) {
 	a, p, li, abbr {
-		font-size: 1.25em;
+		font-size: 1.5rem;
 	}
 
 	h3 {
-		font-size: 1.5em;
+		font-size: 1.75em;
 		width: 600px;
 	}
 	
@@ -366,6 +374,10 @@ footer {
 	.requirements,
 	.design-selection {
 		align-items: center;
+	}
+
+	[role="banner"] > h1{
+		font-size: 4rem;
 	}
 }
 
