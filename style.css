@@ -92,6 +92,17 @@ a {
   --b-nav-height: 100px;
 }
 
+body {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(233, 228, 205, 0.5) 0%, rgba(250, 237, 203, 0.5) 25%, rgba(221, 215, 200, 0.5) 48.5%, rgba(221, 215, 200, 0) 100%), var(--sky-blue);
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+html {
+  width: 100vw;
+  scroll-snap-type: y mandatory;
+}
+
 .intro,
 .explanation,
 .participation,
@@ -100,14 +111,8 @@ a {
   min-height: calc(100vh - var(--b-nav-height));
 }
 
-html {
-  width: 100vw;
-}
-
-body {
-  background: radial-gradient(50% 50% at 50% 50%, rgba(233, 228, 205, 0.5) 0%, rgba(250, 237, 203, 0.5) 25%, rgba(221, 215, 200, 0.5) 48.5%, rgba(221, 215, 200, 0) 100%), var(--sky-blue);
-  overflow-x: hidden;
-  width: 100vw;
+.intro, .explanation, .participation, .benefits, .requirements, .design-selection {
+  scroll-snap-align: start;
 }
 
 .intro,
@@ -214,7 +219,7 @@ body {
 }
 
 .design-selection {
-  height: 100vh;
+  height: calc(100vh - 100px);
 }
 .design-selection h3 {
   font-size: 0;
@@ -223,11 +228,12 @@ body {
   background-size: calc(95vw - var(--sidebar-width)) auto;
   height: 16vw;
   width: calc(95vw - var(--sidebar-width));
+  margin-bottom: 2rem;
 }
 .design-selection ul {
   display: flex;
   flex-flow: column nowrap;
-  gap: 2rem;
+  gap: 1rem;
 }
 .design-selection li::after {
   content: ">";

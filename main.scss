@@ -14,18 +14,6 @@
 	--b-nav-height: 100px;
 }
 
-.intro,
-.explanation,
-.participation,
-.benefits,
-.requirements {
-	min-height: calc(100vh - var(--b-nav-height));
-}
-
-html {
-	width: 100vw;
-}
-
 body {
 	background: radial-gradient(
 			50% 50% at 50% 50%,
@@ -37,6 +25,23 @@ body {
 		var(--sky-blue);
 	overflow-x: hidden;
 	width: 100vw;
+}
+
+html {
+	width: 100vw;
+	scroll-snap-type: y mandatory;
+}
+
+.intro,
+.explanation,
+.participation,
+.benefits,
+.requirements {
+	min-height: calc(100vh - var(--b-nav-height));
+}
+
+.intro, .explanation, .participation, .benefits, .requirements, .design-selection {
+	scroll-snap-align: start;
 }
 
 .intro,
@@ -147,7 +152,7 @@ body {
 }
 
 .design-selection {
-	height: 100vh;
+	height: calc(100vh - 100px);
 	h3 {
 		font-size: 0;
 		background-image: url(map.get(svgs.$graphics, "design-banner"));
@@ -155,11 +160,12 @@ body {
 		background-size: calc(95vw - var(--sidebar-width)) auto;
 		height: 16vw;
 		width: calc(95vw - var(--sidebar-width));
+		margin-bottom: 2rem;
 	}
 	ul {
 		display: flex;
 		flex-flow: column nowrap;
-		gap: 2rem;
+		gap: 1rem;
 	}
 
 	li::after {
