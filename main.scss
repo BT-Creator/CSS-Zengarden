@@ -55,6 +55,11 @@ html {
 	padding-right: var(--sidebar-width);
 }
 
+.intro, .explanation, .participation, .benefits, .requirements, .design-selection {
+	padding-top: 15vh;
+	padding-bottom: 15vh;
+}
+
 /* Intro */
 .intro,
 .participation,
@@ -306,8 +311,6 @@ footer {
 
 @media screen and (width < 400px) {
 	.intro {
-		padding-top: 7vh;
-
 		h1 {
 			font-size: 1.75rem;
 		}
@@ -318,5 +321,11 @@ footer {
 				font-size: 0.9rem;
 			}
 		}
+	}
+}
+
+@media screen and (height < 700px) {
+	a, p {
+		font-size: 0.8rem;
 	}
 }
