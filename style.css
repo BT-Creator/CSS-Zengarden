@@ -432,6 +432,10 @@ footer .zen-github {
   [role=banner] > h1 {
     font-size: 4rem;
   }
+  .requirements {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
 }
 @media screen and (height < 700px) {
   a,
