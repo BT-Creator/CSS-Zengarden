@@ -141,29 +141,26 @@ html {
 	position: relative;
 }
 
-:is(.explanation, .benefits, .design-selection)::before {
-	content: "";
-	display: inline-block;
-	height: 40vw;
-	width: calc(100vw + 1.5rem);
-	position: absolute;
-	background-image: url(map.get(svgs.$graphics, "frame-divider"));
-	background-repeat: no-repeat;
-	background-size: 110vw auto;
-	top: -18vw;
-	left: -1.5rem;
-}
-
+:is(.explanation, .benefits, .design-selection)::before,
 :is(.explanation, .benefits, .design-selection)::after {
 	content: "";
 	display: inline-block;
 	height: 40vw;
 	width: calc(100vw + 1.5rem);
 	position: absolute;
-	background-image: url(map.get(svgs.$graphics, "top-clouds"));
-	transform: rotate(180deg);
 	background-repeat: no-repeat;
 	background-size: 110vw auto;
+}
+
+:is(.explanation, .benefits, .design-selection)::before {
+	background-image: url(map.get(svgs.$graphics, "frame-divider"));
+	top: -18vw;
+	left: -1.5rem;
+}
+
+:is(.explanation, .benefits, .design-selection)::after {
+	background-image: url(map.get(svgs.$graphics, "top-clouds"));
+	transform: rotate(180deg);
 	bottom: 0;
 	left: -1.5rem;
 }
@@ -286,19 +283,19 @@ footer a {
 		border-left: none;
 	}
 	.view-css {
-		background-image: url(map.get(svgs.$graphics, "css-file-duotone"));
+		background-image: url(map.get(svgs.$graphics, "css-file-duotone-bb"));
 	}
 	.css-resources {
-		background-image: url(map.get(svgs.$graphics, "css-guide-duotone"));
+		background-image: url(map.get(svgs.$graphics, "css-guide-duotone-bb"));
 	}
 	.zen-faq {
-		background-image: url(map.get(svgs.$graphics, "paper-plane-duotone"));
+		background-image: url(map.get(svgs.$graphics, "paper-plane-duotone-bb"));
 	}
 	.zen-submit {
-		background-image: url(map.get(svgs.$graphics, "question-duotone"));
+		background-image: url(map.get(svgs.$graphics, "question-duotone-bb"));
 	}
 	.zen-translations {
-		background-image: url(map.get(svgs.$graphics, "translate-duotone"));
+		background-image: url(map.get(svgs.$graphics, "translate-duotone-bb"));
 	}
 }
 
@@ -321,19 +318,19 @@ footer {
 		}
 	}
 	.zen-validate-html {
-		background-image: url(map.get(svgs.$graphics, "html-verify-duotone"));
+		background-image: url(map.get(svgs.$graphics, "html-verify-duotone-sb"));
 	}
 	.zen-validate-css {
-		background-image: url(map.get(svgs.$graphics, "css-verify-duotone"));
+		background-image: url(map.get(svgs.$graphics, "css-verify-duotone-sb"));
 	}
 	.zen-license {
-		background-image: url(map.get(svgs.$graphics, "license-duotone"));
+		background-image: url(map.get(svgs.$graphics, "license-duotone-sb"));
 	}
 	.zen-accessibility {
-		background-image: url(map.get(svgs.$graphics, "accessibility-duotone"));
+		background-image: url(map.get(svgs.$graphics, "accessibility-duotone-sb"));
 	}
 	.zen-github {
-		background-image: url(map.get(svgs.$graphics, "github-duotone"));
+		background-image: url(map.get(svgs.$graphics, "github-duotone-sb"));
 	}
 }
 
@@ -352,7 +349,7 @@ footer {
 	}
 }
 
-@media screen and (width > 600px) {
+@media screen and (600px < width < 1000px) {
 	a, p, li, abbr {
 		font-size: 1.5rem;
 	}
@@ -414,5 +411,95 @@ footer {
 
 	.design-archives {
 		top: -9rem;
+	}
+}
+
+@media screen and (width > 1000px) {
+	html {
+		scroll-snap-type: x mandatory;
+		width: initial;
+	}
+
+	body {
+		width: initial;
+		overflow-x: visible;
+	}
+
+	.page-wrapper, .main {
+		display: flex;
+		flex-flow: row nowrap;
+	}
+
+	.intro,
+	.explanation,
+	.participation,
+	.benefits,
+	.requirements {
+		min-height: 100vh;
+		max-height: 100vh;
+		min-width: 100vw;
+		padding: 0;
+		height: 100vh;
+		width: 100vw;
+	}
+	
+	.intro,
+	.explanation,
+	.participation,
+	.benefits,
+	.requirements {
+		min-height: unset;
+	}
+
+	.intro,
+	.participation,
+	.requirements {
+		background-image: none;
+	}
+
+	.intro {
+		align-items: center;
+	}
+
+	.preamble,
+	:is(.explanation, .participation, .benefits, .requirements) > :is(h3, p){
+		width: 80vw;
+	}
+
+	:is(.explanation, .benefits, .design-selection)::before {
+		all: initial
+	}
+	
+	:is(.explanation, .benefits, .design-selection)::after {
+		all: initial
+	}
+
+	/* Side Nav */
+	footer {
+		position: fixed;
+		left: 50%;
+		bottom: 0;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+	
+		a {
+			background-position: center;
+			width: initial
+		}
+		.zen-validate-html {
+			background-image: url(map.get(svgs.$graphics, "html-verify-duotone-bb"));
+		}
+		.zen-validate-css {
+			background-image: url(map.get(svgs.$graphics, "css-verify-duotone-bb"));
+		}
+		.zen-license {
+			background-image: url(map.get(svgs.$graphics, "license-duotone-bb"));
+		}
+		.zen-accessibility {
+			background-image: url(map.get(svgs.$graphics, "accessibility-duotone-bb"));
+		}
+		.zen-github {
+			background-image: url(map.get(svgs.$graphics, "github-duotone-bb"));
+		}
 	}
 }
