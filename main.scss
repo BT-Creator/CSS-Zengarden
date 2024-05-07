@@ -350,7 +350,10 @@ footer {
 }
 
 @media screen and (600px < width < 1000px) {
-	a, p, li, abbr {
+	a,
+	p,
+	li,
+	abbr {
 		font-size: 1.5rem;
 	}
 
@@ -358,7 +361,7 @@ footer {
 		font-size: 1.75em;
 		width: 600px;
 	}
-	
+
 	.preamble,
 	:is(.explanation, .participation, .benefits, .requirements) > :is(h3, p) {
 		max-width: 600px;
@@ -373,7 +376,7 @@ footer {
 		align-items: center;
 	}
 
-	[role="banner"] > h1{
+	[role="banner"] > h1 {
 		font-size: 4rem;
 	}
 
@@ -381,7 +384,6 @@ footer {
 		padding-top: 10rem;
 		padding-bottom: 10rem;
 	}
-	
 }
 
 @media screen and (height < 700px) {
@@ -426,7 +428,8 @@ footer {
 		overflow-x: visible;
 	}
 
-	.page-wrapper, .main {
+	.page-wrapper,
+	.main {
 		display: flex;
 		flex-flow: row nowrap;
 	}
@@ -444,7 +447,7 @@ footer {
 		height: 100vh;
 		width: 100vw;
 	}
-	
+
 	.intro,
 	.explanation,
 	.participation,
@@ -453,7 +456,6 @@ footer {
 		min-height: unset;
 	}
 
-	.intro,
 	.participation,
 	.requirements {
 		background-image: none;
@@ -472,26 +474,67 @@ footer {
 		align-items: center;
 	}
 
-	.preamble,
-	:is(.explanation, .participation, .benefits, .requirements) > :is(h3, p){
-		width: 80vw;
+	:is(.intro, .explanation, .participation, .benefits, .requirements, .design-selection)::before,
+	:is(.intro, .explanation, .participation, .benefits, .requirements, .design-selection)::after {
+		content: "";
+		display: inline-block;
+		width: auto;
+		height: 100vh;
+		aspect-ratio: 1/4.78313253;
+		position: absolute;
+		background-repeat: no-repeat;
+		background-size: auto 100vh;
+		transform: none;
+		z-index: -1;
 	}
 
-	:is(.explanation, .benefits, .design-selection)::before {
-		all: initial
+	:is(.intro, .explanation, .participation, .benefits, .requirements, .design-selection)::before {
+		left: 0;
+		top: 0;
+		background-image: url(map.get(svgs.$graphics, "left-clouds"));
 	}
-	
-	:is(.explanation, .benefits, .design-selection)::after {
-		all: initial
+
+	:is(.intro, .explanation, .participation, .benefits, .requirements, .design-selection)::after {
+		left: initial;
+		right: 0;
+		top: 0;
+		bottom: initial;
+		background-image: url(map.get(svgs.$graphics, "right-clouds"));
+	}
+
+	.preamble,
+	:is(.explanation, .participation, .benefits, .requirements) > :is(h3, p) {
+		width: 80vw;
 	}
 
 	.zen-resources {
 		background-color: initial;
+		right: 50%;
+		left: initial;
 		ul {
-			width: 50vw;
+			width: 40vw;
+			align-items: flex-start;
 		}
 		li {
-			border: initial	
+			border: initial;
+		}
+		a {
+			margin: 0;
+		}
+		.view-css {
+			background-image: url(map.get(svgs.$graphics, "css-file-duotone-dk"));
+		}
+		.css-resources {
+			background-image: url(map.get(svgs.$graphics, "css-guide-duotone-dk"));
+		}
+		.zen-faq {
+			background-image: url(map.get(svgs.$graphics, "paper-plane-duotone-dk"));
+		}
+		.zen-submit {
+			background-image: url(map.get(svgs.$graphics, "question-duotone-dk"));
+		}
+		.zen-translations {
+			background-image: url(map.get(svgs.$graphics, "translate-duotone-dk"));
 		}
 	}
 
@@ -501,29 +544,32 @@ footer {
 		left: 50%;
 		bottom: 0;
 		flex-flow: row nowrap;
-		justify-content: space-between;
+		justify-content: space-around;
+		align-items: flex-end;
 		height: initial;
-	
+		width: 40vw;
+
 		a {
 			background-position: center;
 			width: 100px;
 			height: 100px;
 			flex-grow: 0;
+			margin:0
 		}
 		.zen-validate-html {
-			background-image: url(map.get(svgs.$graphics, "html-verify-duotone-bb"));
+			background-image: url(map.get(svgs.$graphics, "html-verify-duotone-dk"));
 		}
 		.zen-validate-css {
-			background-image: url(map.get(svgs.$graphics, "css-verify-duotone-bb"));
+			background-image: url(map.get(svgs.$graphics, "css-verify-duotone-dk"));
 		}
 		.zen-license {
-			background-image: url(map.get(svgs.$graphics, "license-duotone-bb"));
+			background-image: url(map.get(svgs.$graphics, "license-duotone-dk"));
 		}
 		.zen-accessibility {
-			background-image: url(map.get(svgs.$graphics, "accessibility-duotone-bb"));
+			background-image: url(map.get(svgs.$graphics, "accessibility-duotone-dk"));
 		}
 		.zen-github {
-			background-image: url(map.get(svgs.$graphics, "github-duotone-bb"));
+			background-image: url(map.get(svgs.$graphics, "github-duotone-dk"));
 		}
 	}
 }
