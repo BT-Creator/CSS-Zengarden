@@ -417,6 +417,18 @@ footer {
 }
 
 @media screen and (width > 1000px) {
+	.intro h1 {
+		font-size: 4rem;
+	}
+
+	h3 {
+		font-size: 2rem;
+	}
+
+	p, a, abbr, ul {
+		font-size: 1.5rem;
+	}
+
 	html {
 		scroll-snap-type: x mandatory;
 		width: initial;
@@ -485,7 +497,6 @@ footer {
 		background-repeat: no-repeat;
 		background-size: auto 100vh;
 		transform: none;
-		z-index: -1;
 	}
 
 	:is(.intro, .explanation, .participation, .benefits, .requirements, .design-selection)::before {
@@ -500,6 +511,10 @@ footer {
 		top: 0;
 		bottom: initial;
 		background-image: url(map.get(svgs.$graphics, "right-clouds"));
+	}
+
+	.intro::before, .intro::after{
+		z-index: -1;
 	}
 
 	.preamble,
