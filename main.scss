@@ -425,7 +425,10 @@ footer {
 		font-size: 2rem;
 	}
 
-	p, a, abbr, ul {
+	p,
+	a,
+	abbr,
+	ul {
 		font-size: 1.5rem;
 	}
 
@@ -468,11 +471,6 @@ footer {
 		min-height: unset;
 	}
 
-	.participation,
-	.requirements {
-		background-image: none;
-	}
-
 	.explanation,
 	.participation,
 	.benefits,
@@ -513,16 +511,32 @@ footer {
 		top: 0;
 	}
 
-	.intro,::after {
+	.intro,
+	::after {
 		left: initial;
 		right: 0;
 		top: 0;
 		bottom: initial;
 	}
 
-	:is(.explanation, .participation, .benefits, .requirements, .design-selection)::before,
+	:is(.participation, .requirements)::before,
 	:is(.explanation, .participation, .benefits, .requirements, .design-selection)::after {
 		background-image: none;
+	}
+
+	:is(.explanation, .benefits, .design-selection)::before{
+		background-size: 100vw auto;
+		background-position: center;
+		width: 100vw;
+		left: unset;
+		top: -40vh;
+	}
+
+	.participation,
+	.requirements{
+		background-image: url(map.get(svgs.$graphics, "top-clouds"));
+		background-size: 100vw auto;
+		background-repeat: no-repeat;
 	}
 
 	:is(.participation, .requirements)::after {
@@ -534,7 +548,7 @@ footer {
 
 	.preamble,
 	:is(.explanation, .participation, .benefits, .requirements) > :is(h3, p) {
-		width: 80vw;
+		width: 75vw;
 	}
 
 	.zen-resources {
@@ -584,7 +598,7 @@ footer {
 			width: 100px;
 			height: 100px;
 			flex-grow: 0;
-			margin:0
+			margin: 0;
 		}
 		.zen-validate-html {
 			background-image: url(map.get(svgs.$graphics, "html-verify-duotone-dk"));
