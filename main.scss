@@ -418,6 +418,7 @@ footer {
 	html {
 		scroll-snap-type: x mandatory;
 		width: initial;
+		overflow-y: hidden;
 	}
 
 	body {
@@ -434,7 +435,8 @@ footer {
 	.explanation,
 	.participation,
 	.benefits,
-	.requirements {
+	.requirements,
+	.design-selection {
 		min-height: 100vh;
 		max-height: 100vh;
 		min-width: 100vw;
@@ -457,6 +459,15 @@ footer {
 		background-image: none;
 	}
 
+	.explanation,
+	.participation,
+	.benefits,
+	.requirements {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+	}
+
 	.intro {
 		align-items: center;
 	}
@@ -474,6 +485,16 @@ footer {
 		all: initial
 	}
 
+	.zen-resources {
+		background-color: initial;
+		ul {
+			width: 50vw;
+		}
+		li {
+			border: initial	
+		}
+	}
+
 	/* Side Nav */
 	footer {
 		position: fixed;
@@ -481,10 +502,13 @@ footer {
 		bottom: 0;
 		flex-flow: row nowrap;
 		justify-content: space-between;
+		height: initial;
 	
 		a {
 			background-position: center;
-			width: initial
+			width: 100px;
+			height: 100px;
+			flex-grow: 0;
 		}
 		.zen-validate-html {
 			background-image: url(map.get(svgs.$graphics, "html-verify-duotone-bb"));
