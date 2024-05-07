@@ -486,35 +486,50 @@ footer {
 		align-items: center;
 	}
 
-	:is(.intro, .explanation, .participation, .benefits, .requirements, .design-selection)::before,
-	:is(.intro, .explanation, .participation, .benefits, .requirements, .design-selection)::after {
+	.intro::before,
+	.intro::after {
 		content: "";
 		display: inline-block;
 		width: auto;
 		height: 100vh;
 		aspect-ratio: 1/4.78313253;
-		position: absolute;
+		position: fixed;
 		background-repeat: no-repeat;
 		background-size: auto 100vh;
 		transform: none;
+		z-index: 10;
 	}
 
-	:is(.intro, .explanation, .participation, .benefits, .requirements, .design-selection)::before {
-		left: 0;
-		top: 0;
+	.intro::before {
 		background-image: url(map.get(svgs.$graphics, "left-clouds"));
 	}
 
-	:is(.intro, .explanation, .participation, .benefits, .requirements, .design-selection)::after {
+	.intro::after {
+		background-image: url(map.get(svgs.$graphics, "right-clouds"));
+	}
+
+	.intro::before {
+		left: 0;
+		top: 0;
+	}
+
+	.intro,::after {
 		left: initial;
 		right: 0;
 		top: 0;
 		bottom: initial;
-		background-image: url(map.get(svgs.$graphics, "right-clouds"));
 	}
 
-	.intro::before, .intro::after{
-		z-index: -1;
+	:is(.explanation, .participation, .benefits, .requirements, .design-selection)::before,
+	:is(.explanation, .participation, .benefits, .requirements, .design-selection)::after {
+		background-image: none;
+	}
+
+	:is(.participation, .requirements)::after {
+		left: 0;
+		right: initial;
+		top: initial;
+		bottom: initial;
 	}
 
 	.preamble,
