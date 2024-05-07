@@ -418,18 +418,18 @@ footer {
 
 @media screen and (width > 1000px) {
 	.intro h1 {
-		font-size: 4rem;
+		font-size: 3rem;
 	}
 
 	h3 {
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 
 	p,
 	a,
 	abbr,
 	ul {
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 	}
 
 	html {
@@ -519,24 +519,16 @@ footer {
 		bottom: initial;
 	}
 
-	:is(.participation, .requirements)::before,
 	:is(.explanation, .participation, .benefits, .requirements, .design-selection)::after {
 		background-image: none;
 	}
 
 	:is(.explanation, .benefits, .design-selection)::before{
-		background-size: 100vw auto;
+		background-size: 50vw auto;
 		background-position: center;
 		width: 100vw;
 		left: unset;
 		top: -40vh;
-	}
-
-	.participation,
-	.requirements{
-		background-image: url(map.get(svgs.$graphics, "top-clouds"));
-		background-size: 100vw auto;
-		background-repeat: no-repeat;
 	}
 
 	:is(.participation, .requirements)::after {
