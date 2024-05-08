@@ -531,11 +531,21 @@ footer {
 		top: -40vh;
 	}
 
-	:is(.participation, .requirements)::after {
-		left: 0;
-		right: initial;
-		top: initial;
-		bottom: initial;
+	.participation, .requirements{
+		background-image: none;
+	}
+
+	:is(.participation, .requirements)::before {
+		content: "";
+		display: inline-block;
+		aspect-ratio: 4.78313253/1;
+		height: auto;
+		width: 100vw;
+		position: absolute;
+		background-repeat: no-repeat;
+		background-size: 100vw auto;
+		background-image: url(map.get(svgs.$graphics, "top-clouds"));
+		top: -15vh;
 	}
 
 	.preamble,
